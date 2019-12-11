@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 #on:
 #  push:
 #    branches:
@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: forked pr
+      run: echo code execution
     - name: install python dependencies
       run: pipenv sync --dev
     - name: install ansible roles
